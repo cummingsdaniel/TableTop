@@ -8,5 +8,5 @@ This application allows you to make a character sheet for either dungeons and dr
 - printable pdf download
 - saving capabilities
 
-##FAQ 
+## FAQ 
 - Coming Soon
