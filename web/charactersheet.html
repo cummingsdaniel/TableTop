@@ -1,0 +1,504 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><title>charactersheet.beta</title>
+  <link rel="stylesheet" type="text/css" href="charastyles.css" media= "screen">
+ <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+  <script type="text/javascript" src="script1.js"></script>
+  <link rel="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<!--<style>
+table, th, td {
+    border: 1px solid black;
+}
+th {
+    text-align: center;
+}
+td {
+    text-align: center;
+}
+</style>-->
+
+</head>
+
+<header>
+  <figure>
+    <img src="dnd-logo.gif" alt="dungeons and dragons logo"/>
+  </figure>
+</header>
+  <form method="POST" action="form.aspx">
+  <div class="container">
+  <div style="float:left;margin-left:10px;">
+<p>
+<h1>Abilities</h1>
+  <table id="abilities" class="table table-striped" style="width:33%">
+  <tr>
+    <th></th>
+    <th>Ability Score</th> 
+    <th>Ability Modifier</th>
+  </tr>
+  <tr>
+    <td>Strength</td>
+    <td><lable><input type="number" id="strScore" name="attr_strscore" maxlength="2" size="1"></lable></td>
+    <td><lable><input type="number" id="strMod" name="attr_strmod" maxlength="2" size="1"></lable></td>   
+  </tr>
+  <tr>
+    <td>Dextarity</td>
+    <td><lable><input type="number" id="dexScore" name="attr_dexscore" maxlength="2" size="1"></lable></td>
+    <td><lable><input type="number" id="dexMod" name="attr_dexmod" maxlength="2" size="1"></lable></td>
+  </tr>
+  <tr>
+    <td>Constitution</td>  
+    <td><lable><input type="number" id="conScore" name="attr_conscore" maxlength="2" size="1"></lable></td>
+    <td><lable><input type="number" id="conMod" name="attr_conmod" maxlength="2" size="1"></lable></td>    
+  </tr>
+  <tr>
+    <td>Intellegence</td>
+    <td><lable><input type="number" id="intScore" name="attr_intscore" maxlength="2" size="1"></lable></td>
+    <td><lable><input type="number" id="intMod" name="attr_intmod" maxlength="2" size="1"></lable></td>
+  </tr>
+  <tr>
+  </tr>
+    <td>Wisdom</td>
+    <td><lable><input type="number" id="wisScore" name="attr_wisscore" maxlength="2" size="1"></lable></td>
+    <td><lable><input type="number" id="wisMod" name="attr_wismod" maxlength="2" size="1"></lable></td>
+  <tr>
+    <td>Charisma</td>
+    <td><lable><input type="number" id="chaScore" name="attr_chascore" maxlength="2" size="1"></lable></td>
+    <td><lable><input type="number" id="chaMod" name="attr_chamod" maxlength="2" size="1"></lable></td> 
+  </tr>
+
+</table>
+
+</p>
+</div>
+</form>
+
+<table class="table-condensed">
+  <tr>
+    <td>
+      <lable>HP<input type="number" id="hp" name="hp">
+      <lable>Speed<input type="number" id="speed" name="speed">
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <lable>AC<input type="number" id="AC" name="AC" size="1">
+      <lable>Sheild Bonus<input type="number" id="sheildmod" name="sheildmod" size="1">
+      <lable>Armor Bonus<input type="number" id="armormod" name="armormod" size="1">
+      <lable>Dex Bonus<input type="number" id="ac_dexmod" name="dexmod" maxlength="2" size="1">
+      <lable>Size Modifier<input type="number" id="sizemod" name="sizemod" maxlength="2" size="1">
+    </td>
+  </tr>
+</table>
+<table>
+  <tr>
+    <th>Weapon</th>
+    <th>Attack bonus</th>
+    <th>Damage</th>
+    <th>Critical</th>
+  </tr>
+  <tr>
+    <td><input type="text" id="weaponName" name="weaponName" ></td>
+    <td><input type="number" id="weaponAttackBonus" name="weaponAttackBonus"></td>
+    <td><input type="number" id="weaponDamage" name="weaponDamage"></td>
+  </tr>
+</table>
+<table>
+  <tr>
+    <th>Range</th>
+    <th>Type</th>
+    <th>Notes</th>
+  </tr>
+  <tr>
+    <td><input type="number" id="weaponRange" name="weaponRange"></td>
+    <td><input type="text" id="damageType" name="damageType"></td>
+    <td><input type="text" id="weaponNotes" name="weaponNotes"></td>
+  </tr>
+</table>
+<footer>
+<table class="table-striped" :nth-child width="343" border=".5">
+<tr>
+  <th>Skill</th>
+  <th>T</th>
+  <th>Sum=</th>
+  <th>Abil</th>
+  <th>Rank</th>
+  <th>Misc</th>
+</tr>
+<tr>
+  <td width="171" scope="col"><div align="left">Appraise</div></td>
+  <td width="30" scope="col"><input name="trained" type="checkbox" id="trained"></td>
+  <td width="30" scope="col"><input type="number" id="appraiseSum" name="appraise_sum" maxlength="2" size="1"></input></td>
+  <td width="30" scope="col"><input type="number" id="appraise_intMod" name="attr_intmod" maxlength="2" size="1"></input></td>
+  <td width="30" scope="col"><input type="number" id="appraiseRank" name="appraise_Rank" size="1"></td>
+  <td width="30" scope="col"><input type="number" id="appraiseMisc" name="appraise_Misc" size="1"></td>
+</tr>
+<tr>
+  <td scope="row"><div align="left">Balance</div></td>
+  <td width="30" scope="col"><input type="checkbox" id="trained" name="trained"></td>
+  <td width="30" scope="col"><input type="number" id="balanceSum" name="balance_sum" maxlength="2" size="1"></td>
+  <td width="30" scope="col"><input type="number" id="balance_dexMod" name="attr_dexmod" maxlength="2" size="1"></td>
+  <td width="30" scope="col"><input type="number" id="balanceRank" name="balace_Rank" size="1"></td>
+  <td width="30" scope="col"><input type="number" id="balanceMisc" name="balance_Misc" size="1"></td>
+</tr>
+<tr>
+  <td scope="row"><div align="left">Bluff</div></td>
+  <td width="30" scope="col"><input type="checkbox" id="trained" name="trained"></td>
+  <td width="30" scope="col"><input type="number" id="bluffSum" name="bluff_sum" maxlength="2" size="1"></td>
+  <td width="30" scope="col"><input type="number" id="bluff_chaMod" name="attr_chamod" maxlength="2" size="1"></td>
+  <td width="30" scope="col"><input type="number" id="bluffRank" name="bluff_Rank" size="1"></td>
+  <td width="30" scope="col"><input type="number" id="bluffMisc" name="bluff_Misc" size="1"></td>
+</tr>
+ <tr>
+  <td scope="row"><div align="left">Climb</div></td>
+  <td width="30" scope="col"><input type="checkbox" id="trained" name="trained"></td>
+  <td width="30" scope="col"><input type="number" id="climbSum" name="climb_sum" maxlength="2" size="1"></td>
+  <td width="30" scope="col"><input type="number" id="climb_strMod" name="attr_strmod" maxlength="2" size="1"></td>
+  <td width="30" scope="col"><input type="number" id="climbRank" name="climb_Rank" size="1"></td>
+  <td width="30" scope="col"><input type="number" id="climbMisc" name="climb_Misc" size="1"></td>
+ </tr>
+ <tr>
+  <td scope="row"><div align="left">Concentration</div></td>
+  <td width="30" scope="col"><input type="checkbox" id="trained" name="trained"></td>
+  <td width="30" scope="col"><input type="number" id="concentrationSum" name="concentration_sum" maxlength="2" size="1"></td>
+  <td width="30" scope="col"><input type="number" id="concentration_conMod" name="attr_conMod" maxlength="2" size="1"></td>
+  <td width="30" scope="col"><input type="number" id="concentrationRank" name="concentration_Rank" size="1"></td>
+  <td width="30" scope="col"><input type="number" id="concentrationMisc" name="concentration_Misc" size="1"></td>
+ </tr>
+ <tr>
+  <td scope="row"><div align="left">Craft<input name="craft1" type="text" id="craft1" size="7"></div></td>
+  <td width="30" scope="col"><input type="checkbox" id="trained" name="trained"></td>
+  <td width="30" scope="col"><input type="number" id="craft1Sum" name="craft1_sum" maxlength="2" size="1"></td>
+  <td width="30" scope="col"><input type="number" id="craft1_intMod" name="attr_intmod" maxlength="2" size="1"></td>
+  <td width="30" scope="col"><input type="number" id="craft1Rank" name="craft1_Rank" size="1"></td>
+  <td width="30" scope="col"><input type="number" id="craft1Misc" name="craft1_Misc" size="1"></td>
+      </tr>
+      <tr>
+        <td scope="row"><div align="left">Craft<input type="text" name="craft2" id="craft2" size="7"></div></td>
+        <td width="30" scope="col"><input type="checkbox" id="trained" name="trained"></td>
+        <td width="30" scope="col"><input type="number" id="craft2Sum" name="craft2_sum" maxlength="2" size="1"></td>
+        <td width="30" scope="col"><input type="number" id="craft2_intMod" name="attr_intmod" maxlength="2" size="1"></td>
+        <td width="30" scope="col"><input type="number" id="craft2Rank" name="craft2_Rank" size="1"></td>
+        <td width="30" scope="col"><input type="number" id="craft2Misc" name="craft2_Misc" size="1"></td>
+      </tr>
+      <tr>
+        <td scope="row"><div align="left">Craft<input type="text" name="craft3" id="craft3" size="7"></div></td>
+        <td width="30" scope="col"><input type="checkbox" id="trained" name="trained"></td>
+        <td width="30" scope="col"><input type="number" id="craft3Sum" name="craft3_sum" maxlength="2" size="1"></td>
+        <td width="30" scope="col"><input type="number" id="craft3_intMod" name="attr_intmod" maxlength="2" size="1"></td>
+        <td width="30" scope="col"><input type="number" id="craft3Rank" name="craft3_Rank" size="1"></td>
+        <td width="30" scope="col"><input type="number" id="craft3Misc" name="craft3_Misc" size="1"></td>
+      </tr>
+      <tr>
+        <td scope="row"><div align="left">Decipher Script</div></td>
+        <td width="30" scope="col"><input type="checkbox" id="trained" name="trained"></td>
+  <td width="30" scope="col"><input type="number" id="decipherscriptSum" name="decipherscript_sum" maxlength="2" size="1"></td>
+  <td width="30" scope="col"><input type="number" id="decipherscript_intMod" name="attr_intmod" maxlength="2" size="1"></td>
+  <td width="30" scope="col"><input type="number" id="decipherscriptRank" name="decipherscript_Rank" size="1"></td>
+  <td width="30" scope="col"><input type="number" id="decipherscriptMisc" name="decipherscript_Misc" size="1"></td>
+      </tr>
+      <tr>
+        <td scope="row"><div align="left">Diplomacy</div></td>
+        <td width="30" scope="col"><input type="checkbox" id="trained" name="trained"></td>
+  <td width="30" scope="col"><input type="number" id="diplomacySum" name="diplomacy_sum" maxlength="2" size="1"></td>
+  <td width="30" scope="col"><input type="number" id="diplomacy_chaMod" name="attr_chamod" maxlength="2" size="1"></td>
+  <td width="30" scope="col"><input type="number" id="diplomacyRank" name="diplomacy_Rank" size="1"></td>
+  <td width="30" scope="col"><input type="number" id="diplomacyMisc" name="diplomacy_Misc" size="1"></td>
+      </tr>
+      <tr>
+        <td scope="row"><div align="left">Disable Device</div></td>
+        <td width="30" scope="col"><input type="checkbox" id="trained" name="trained"></td>
+  <td width="30" scope="col"><input type="number" id="disabledeviceSum" name="disabledevice_sum" maxlength="2" size="1"></td>
+  <td width="30" scope="col"><input type="number" id="disabledevice_intMod" name="attr_intmod" maxlength="2" size="1"></td>
+  <td width="30" scope="col"><input type="number" id="disabledeviceRank" name="disabledevice_Rank" size="1"></td>
+  <td width="30" scope="col"><input type="number" id="disabledeviceMisc" name="disabledevice_Misc" size="1"></td>
+      </tr>
+      <tr>
+        <td scope="row"><div align="left">Disguise</div></td>
+        <td width="30" scope="col"><input type="checkbox" id="trained" name="trained"></td>
+  <td width="30" scope="col"><input type="number" id="disguiseSum" name="disguise_sum" maxlength="2" size="1"></td>
+  <td width="30" scope="col"><input type="number" id="disguise_chaMod" name="attr_chamod" maxlength="2" size="1"></td>
+  <td width="30" scope="col"><input type="number" id="disguiseRank" name="disguise_Rank" size="1"></td>
+  <td width="30" scope="col"><input type="number" id="disguiseMisc" name="disguise_Misc" size="1"></td>
+      </tr>
+      <tr>
+        <td scope="row"><div align="left">Escape Artist</div></td>
+        <td width="30" scope="col"><input type="checkbox" id="trained" name="trained"></td>
+  <td width="30" scope="col"><input type="number" id="escapeartistSum" name="escapeartist_sum" maxlength="2" size="1"></td>
+  <td width="30" scope="col"><input type="number" id="escapeartist_dexMod" name="attr_dexmod" maxlength="2" size="1"></td>
+  <td width="30" scope="col"><input type="number" id="escapeartistRank" name="escapeartist_Rank" size="1"></td>
+  <td width="30" scope="col"><input type="number" id="escapeartistMisc" name="escapeartist_Misc" size="1"></td>
+      </tr>
+      <tr>
+        <td scope="row"><div align="left">Forgery</div></td>
+        <td width="30" scope="col"><input type="checkbox" id="trained" name="trained"></td>
+  <td width="30" scope="col"><input type="number" id="forgerySum" name="forgery_sum" maxlength="2" size="1"></td>
+  <td width="30" scope="col"><input type="number" id="forgery_intMod" name="attr_intmod" maxlength="2" size="1"></td>
+  <td width="30" scope="col"><input type="number" id="forgeryRank" name="forgery_Rank" size="1"></td>
+  <td width="30" scope="col"><input type="number" id="forgeryMisc" name="forgery_Misc" size="1"></td>
+      </tr>
+      <tr>
+        <td scope="row"><div align="left">Gather Information</div></td>
+        <td width="30" scope="col"><input type="checkbox" id="trained" name="trained"></td>
+  <td width="30" scope="col"><input type="number" id="gatherinformationSum" name="gatherinformation_sum" maxlength="2" size="1"></td>
+  <td width="30" scope="col"><input type="number" id="forgery_chaMod" name="attr_chamod" maxlength="2" size="1"></td>
+  <td width="30" scope="col"><input type="number" id="gatherinformationRank" name="gatherinformation_Rank" size="1"></td>
+  <td width="30" scope="col"><input type="number" id="gatherinformationMisc" name="gatherinformation_Misc" size="1"></td>
+      </tr>
+      <tr>
+        <td scope="row"><div align="left">Handle Animal</div></td>
+        <td width="30" scope="col"><input type="checkbox" id="trained" name="trained"></td>
+  <td width="30" scope="col"><input type="number" id="handleanimalSum" name="handleanimal_sum" maxlength="2" size="1"></td>
+  <td width="30" scope="col"><input type="number" id="handleanimal_chaMod" name="attr_chamod" maxlength="2" size="1"></td>
+  <td width="30" scope="col"><input type="number" id="handleanimalRank" name="handleanimal_Rank" size="1"></td>
+  <td width="30" scope="col"><input type="number" id="handleanimalMisc" name="handleanimal_Misc" size="1"></td>
+      </tr>
+      <tr>
+        <td scope="row"><div align="left">Heal</div></td>
+        <td width="30" scope="col"><input type="checkbox" id="trained" name="trained"></td>
+  <td width="30" scope="col"><input type="number" id="healSum" name="heal_sum" maxlength="2" size="1"></td>
+  <td width="30" scope="col"><input type="number" id="heal_wisMod" name="attr_wismod" maxlength="2" size="1"></td>
+  <td width="30" scope="col"><input type="number" id="healRank" name="heal_Rank" size="1"></td>
+  <td width="30" scope="col"><input type="number" id="healMisc" name="heal_Misc" size="1"></td>
+      </tr>
+      <tr>
+        <td scope="row"><div align="left">Hide</div></td>
+        <td width="30" scope="col"><input type="checkbox" id="trained" name="trained"></td>
+  <td width="30" scope="col"><input type="number" id="hideSum" name="hide_sum" maxlength="2" size="1"></td>
+  <td width="30" scope="col"><input type="number" id="hide_dexMod" name="attr_dexmod" maxlength="2" size="1"></td>
+  <td width="30" scope="col"><input type="number" id="hideRank" name="hide_Rank" size="1"></td>
+  <td width="30" scope="col"><input type="number" id="hideMisc" name="hide_Misc" size="1"></td>
+      </tr>
+      <tr>
+        <td scope="row"><div align="left">Intimidate</div></td>
+        <td width="30" scope="col"><input type="checkbox" id="trained" name="trained"></td>
+  <td width="30" scope="col"><input type="number" id="intimidateSum" name="intimidate_sum" maxlength="2" size="1"></td>
+  <td width="30" scope="col"><input type="number" id="intimidate_chaMod" name="attr_chamod" maxlength="2" size="1"></td>
+  <td width="30" scope="col"><input type="number" id="intimidateRank" name="intimidate_Rank" size="1"></td>
+  <td width="30" scope="col"><input type="number" id="intimidateMisc" name="intimidate_Misc" size="1"></td>
+      </tr>
+      <tr>
+        <td scope="row"><div align="left">Jump</div></td>
+        <td width="30" scope="col"><input type="checkbox" id="trained" name="trained"></td>
+  <td width="30" scope="col"><input type="number" id="jumpSum" name="jump_sum" maxlength="2" size="1"></td>
+  <td width="30" scope="col"><input type="number" id="jump_strMod" name="attr_strmod" maxlength="2" size="1"></td>
+  <td width="30" scope="col"><input type="number" id="jumpRank" name="jump_Rank" size="1"></td>
+  <td width="30" scope="col"><input type="number" id="jumpMisc" name="jump_Misc" size="1"></td>
+      </tr>
+      <tr>
+        <td scope="row"><div align="left">Knowledge
+          <label><input name="knowledge1" type="text" id="knowledge1" value="" size="2"></lable>
+          </div></td>
+        <td width="30" scope="col"><input type="checkbox" id="trained" name="trained"></td>
+  <td width="30" scope="col"><input type="number" id="knowledge1Sum" name="knowledge1_sum" maxlength="2" size="1"></td>
+  <td width="30" scope="col"><input type="number" id="knowledge1_intMod" name="attr_intmod" maxlength="2" size="1"></td>
+  <td width="30" scope="col"><input type="number" id="knowledge1Rank" name="knowledge1_Rank" size="1"></td>
+  <td width="30" scope="col"><input type="number" id="knowledge1Misc" name="knowledge1_Misc" size="1"></td>
+      </tr>
+      <tr>
+        <td scope="row"><div align="left">Knowledge
+          <label><input name="knowledge2" type="text" id="knowledge2" value="" size="2"></label>
+          </div></td>
+        <td width="30" scope="col"><input type="checkbox" id="trained" name="trained"></td>
+  <td width="30" scope="col"><input type="number" id="knowledge2Sum" name="knowledge2_sum" maxlength="2" size="1"></td>
+  <td width="30" scope="col"><input type="number" id="knowledge2_intMod" name="attr_intmod" maxlength="2" size="1"></td>
+  <td width="30" scope="col"><input type="number" id="knowledge2Rank" name="knowledge2_Rank" size="1"></td>
+  <td width="30" scope="col"><input type="number" id="knowledge2Misc" name="knowledge2_Misc" size="1"></td>
+      </tr>
+      <tr>
+        <td scope="row"><div align="left">Knowledge
+          <label><input name="knowledge3" type="text" id="knowledge3" value="" size="2"></label>
+          </div></td>
+        <td width="30" scope="col"><input type="checkbox" id="trained" name="trained"></td>
+  <td width="30" scope="col"><input type="number" id="knowledge3Sum" name="knowledge3_sum" maxlength="2" size="1"></td>
+  <td width="30" scope="col"><input type="number" id="knowledge3_intMod" name="attr_intmod" maxlength="2" size="1"></td>
+  <td width="30" scope="col"><input type="number" id="knowledge3Rank" name="knowledge3_Rank" size="1"></td>
+  <td width="30" scope="col"><input type="number" id="knowledge3Misc" name="knowledge3_Misc" size="1"></td>
+      </tr>
+      <tr>
+        <td scope="row">
+          <div align="left">Knowledge
+          <label><input name="knowledge4" type="text" id="knowledge4" value="" size="2"></label>
+          </div>
+        </td>
+        <td width="30" scope="col"><input type="checkbox" id="trained" name="trained"></td>
+  <td width="30" scope="col"><input type="number" id="knowledge4Sum" name="knowledge4_sum" maxlength="2" size="1"></td>
+  <td width="30" scope="col"><input type="number" id="knowledge4_intMod" name="attr_intmod" maxlength="2" size="1"></td>
+  <td width="30" scope="col"><input type="number" id="knowledge4Rank" name="knowledge4_Rank" size="1"></td>
+  <td width="30" scope="col"><input type="number" id="knowledge4Misc" name="knowledge4_Misc" size="1"></td>
+      </tr>
+      <tr>
+        <td scope="row">
+          <div align="left">Knowledge
+            <label><input name="knowledge5" type="text" id="knowledge5" value="" size="2">
+            </label>
+          </div>
+        </td>
+        <td width="30" scope="col"><input type="checkbox" id="trained" name="trained"></td>
+  <td width="30" scope="col"><input type="number" id="knowledge5Sum" name="knowledge5_sum" maxlength="2" size="1"></td>
+  <td width="30" scope="col"><input type="number" id="knowledge5_intMod" name="attr_intmod" maxlength="2" size="1"></td>
+  <td width="30" scope="col"><input type="number" id="knowledge5Rank" name="knowledge5_Rank" size="1"></td>
+  <td width="30" scope="col"><input type="number" id="knowledge5Misc" name="knowledge5_Misc" size="1"></td>
+      </tr>
+      <tr>
+        <td scope="row"><div align="left">Listen</div></td>
+        <td width="30" scope="col"><input type="checkbox" id="trained" name="trained"></td>
+  <td width="30" scope="col"><input type="number" id="listenSum" name="listen_sum" maxlength="2" size="1"></td>
+  <td width="30" scope="col"><input type="number" id="listen_wisMod" name="attr_wismod" maxlength="2" size="1"></td>
+  <td width="30" scope="col"><input type="number" id="listenRank" name="listen_Rank" size="1"></td>
+  <td width="30" scope="col"><input type="number" id="listenMisc" name="listen_Misc" size="1"></td>
+      </tr>
+      <tr>
+        <td scope="row"><div align="left">Move Silently</div></td>
+        <td width="30" scope="col"><input type="checkbox" id="trained" name="trained"></td>
+  <td width="30" scope="col"><input type="number" id="movesilentlySum" name="movesilently_sum" maxlength="2" size="1"></td>
+  <td width="30" scope="col"><input type="number" id="movesilently_dexMod" name="attr_dexmod" maxlength="2" size="1"></td>
+  <td width="30" scope="col"><input type="number" id="movesilentlyRank" name="movesilently_Rank" size="1"></td>
+  <td width="30" scope="col"><input type="number" id="movesilentlyMisc" name="movesilently_Misc" size="1"></td>
+      </tr>
+      <tr>
+        <td scope="row"><div align="left">Open Locks</div></td>
+        <td width="30" scope="col"><input type="checkbox" id="trained" name="trained"></td>
+  <td width="30" scope="col"><input type="number" id="openlocksSum" name="openlocks_sum" maxlength="2" size="1"></td>
+  <td width="30" scope="col"><input type="number" id="openlocks_dexMod" name="attr_dexmod" maxlength="2" size="1"></td>
+  <td width="30" scope="col"><input type="number" id="openlocksRank" name="openlocks_Rank" size="1"></td>
+  <td width="30" scope="col"><input type="number" id="openlocksMisc" name="openlocks_Misc" size="1"></td>
+      </tr>
+      <tr>
+        <td scope="row"><div align="left">Perform</div>
+        <label><input name="perform1" type="text" id="perform1" value="" size="2"></label></td>
+        <td width="30" scope="col"><input type="checkbox" id="trained" name="trained"></td>
+  <td width="30" scope="col"><input type="number" id="perform1Sum" name="perform1_sum" maxlength="2" size="1"></td>
+  <td width="30" scope="col"><input type="number" id="perform1_chaMod" name="attr_chamod" maxlength="2" size="1"></td>
+  <td width="30" scope="col"><input type="number" id="perform1Rank" name="perform1_Rank" size="1"></td>
+  <td width="30" scope="col"><input type="number" id="perform1Misc" name="perform1_Misc" size="1"></td>
+      </tr>
+      <tr>
+        <td scope="row"><div align="left">Perform</div>
+        <label><input name="perform2" type="text" id="perform2" value="" size="2"></label></td>
+        <td width="30" scope="col"><input type="checkbox" id="trained" name="trained"></td>
+  <td width="30" scope="col"><input type="number" id="perform2Sum" name="perform2_sum" maxlength="2" size="1"></td>
+  <td width="30" scope="col"><input type="number" id="perform2_chaMod" name="attr_chamod" maxlength="2" size="1"></td>
+  <td width="30" scope="col"><input type="number" id="perform2Rank" name="perform2_Rank" size="1"></td>
+  <td width="30" scope="col"><input type="number" id="perform2Misc" name="perform2_Misc" size="1"></td>
+      </tr>
+      <tr>
+        <td scope="row"><div align="left">Perform</div>
+        <label><input name="perform3" type="text" id="perform3" value="" size="2"></label></td>
+        <td width="30" scope="col"><input type="checkbox" id="trained" name="trained"></td>
+  <td width="30" scope="col"><input type="number" id="perform3Sum" name="perform3_sum" maxlength="2" size="1"></td>
+  <td width="30" scope="col"><input type="number" id="perform3_chaMod" name="attr_chamod" maxlength="2" size="1"></td>
+  <td width="30" scope="col"><input type="number" id="perform3Rank" name="perform3_Rank" size="1"></td>
+  <td width="30" scope="col"><input type="number" id="perform3Misc" name="perform3_Misc" size="1"></td>
+      </tr>
+      <tr>
+        <td scope="row"><div align="left">Profession</div>
+        <label><input name="profession1" type="text" id="profession1" value="" size="2"></label></td>
+        <td width="30" scope="col"><input type="checkbox" id="trained" name="trained"></td>
+  <td width="30" scope="col"><input type="number" id="profession1Sum" name="profession1_sum" maxlength="2" size="1"></td>
+  <td width="30" scope="col"><input type="number" id="profession1_wisMod" name="attr_wismod" maxlength="2" size="1"></td>
+  <td width="30" scope="col"><input type="number" id="profession1Rank" name="profession1_Rank" size="1"></td>
+  <td width="30" scope="col"><input type="number" id="profession1Misc" name="profession1_Misc" size="1"></td>
+      </tr>
+      <tr>
+        <td scope="row"><div align="left">Profession</div>
+        <label><input name="profession2" type="text" id="profession2" value="" size="2"></label></td>
+        <td width="30" scope="col"><input type="checkbox" id="trained" name="trained"></td>
+  <td width="30" scope="col"><input type="number" id="profession2Sum" name="profession2_sum" maxlength="2" size="1"></td>
+  <td width="30" scope="col"><input type="number" id="profession2_wisMod" name="attr_wismod" maxlength="2" size="1"></td>
+  <td width="30" scope="col"><input type="number" id="profession2Rank" name="profession2_Rank" size="1"></td>
+  <td width="30" scope="col"><input type="number" id="profession2Misc" name="profession2_Misc" size="1"></td>
+      </tr>
+      <tr>
+        <td scope="row"><div align="left">Ride</div></td>
+        <td width="30" scope="col"><input type="checkbox" id="trained" name="trained"></td>
+  <td width="30" scope="col"><input type="number" id="rideSum" name="ride_sum" maxlength="2" size="1"></td>
+  <td width="30" scope="col"><input type="number" id="ride_dexMod" name="attr_dexmod" maxlength="2" size="1"></td>
+  <td width="30" scope="col"><input type="number" id="rideRank" name="ride_Rank" size="1"></td>
+  <td width="30" scope="col"><input type="number" id="rideMisc" name="ride_Misc" size="1"></td>
+      </tr>
+      <tr>
+        <td scope="row"><div align="left">Search</div></td>
+        <td width="30" scope="col"><input type="checkbox" id="trained" name="trained"></td>
+  <td width="30" scope="col"><input type="number" id="searchSum" name="search_sum" maxlength="2" size="1"></td>
+  <td width="30" scope="col"><input type="number" id="search_intMod" name="attr_intmod" maxlength="2" size="1"></td>
+  <td width="30" scope="col"><input type="number" id="searchRank" name="search_Rank" size="1"></td>
+  <td width="30" scope="col"><input type="number" id="searchMisc" name="search_Misc" size="1"></td>
+      </tr>
+      <tr>
+        <td scope="row"><div align="left">Sense Motive</div></td>
+        <td width="30" scope="col"><input type="checkbox" id="trained" name="trained"></td>
+  <td width="30" scope="col"><input type="number" id="sensemotiveSum" name="tumble_sum" maxlength="2" size="1"></td>
+  <td width="30" scope="col"><input type="number" id="sensemotive_wisMod" name="attr_wismod" maxlength="2" size="1"></td>
+  <td width="30" scope="col"><input type="number" id="tumbleRank" name="tumble_Rank" size="1"></td>
+  <td width="30" scope="col"><input type="number" id="tumbleMisc" name="tumble_Misc" size="1"></td>
+      </tr>
+      <tr>
+        <td scope="row"><div align="left">Sleight of Hand</div></td>
+        <td width="30" scope="col"><input type="checkbox" id="trained" name="trained"></td>
+  <td width="30" scope="col"><input type="number" id="sleightofhandSum" name="sleightofhand_sum" maxlength="2" size="1"></td>
+  <td width="30" scope="col"><input type="number" id="sleightofhand_dexMod" name="attr_dexmod" maxlength="2" size="1"></td>
+  <td width="30" scope="col"><input type="number" id="sleightofhandRank" name="sleightofhand_Rank" size="1"></td>
+  <td width="30" scope="col"><input type="number" id="sleightofhandMisc" name="sleightofhand_Misc" size="1"></td>
+      </tr>
+      <tr>
+        <td scope="row"><div align="left">Spellcraft</div></td>
+        <td width="30" scope="col"><input type="checkbox" id="trained" name="trained"></td>
+  <td width="30" scope="col"><input type="number" id="spellcraftSum" name="spellcraft_sum" maxlength="2" size="1"></td>
+  <td width="30" scope="col"><input type="number" id="spellcraft_intMod" name="attr_intmod" maxlength="2" size="1"></td>
+  <td width="30" scope="col"><input type="number" id="spellcraftRank" name="spellcraft_Rank" size="1"></td>
+  <td width="30" scope="col"><input type="number" id="spellcraftMisc" name="spellcraft_Misc" size="1"></td>
+      </tr>
+      <tr>
+        <td scope="row"><div align="left">Spot</div></td>
+        <td width="30" scope="col"><input type="checkbox" id="trained" name="trained"></td>
+  <td width="30" scope="col"><input type="number" id="spotSum" name="spot_sum" maxlength="2" size="1"></td>
+  <td width="30" scope="col"><input type="number" id="spot_wisMod" name="attr_wismod" maxlength="2" size="1"></td>
+  <td width="30" scope="col"><input type="number" id="spotRank" name="spot_Rank" size="1"></td>
+  <td width="30" scope="col"><input type="number" id="spotMisc" name="spot_Misc" size="1"></td>
+      </tr>
+      <tr>
+        <td scope="row"><div align="left">Survival</div></td>
+        <td width="30" scope="col"><input type="checkbox" id="trained" name="trained"></td>
+  <td width="30" scope="col"><input type="number" id="survivalSum" name="survival_sum" maxlength="2" size="1"></td>
+  <td width="30" scope="col"><input type="number" id="survival_wisMod" name="attr_wismod" maxlength="2" size="1"></td>
+  <td width="30" scope="col"><input type="number" id="survivalRank" name="survival_Rank" size="1"></td>
+  <td width="30" scope="col"><input type="number" id="survivalMisc" name="survival_Misc" size="1"></td>
+      </tr>
+      <tr>
+        <td scope="row"><div align="left">Swim</div></td>
+        <td width="30" scope="col"><input type="checkbox" id="trained" name="trained"></td>
+  <td width="30" scope="col"><input type="number" id="swimSum" name="swim_sum" maxlength="2" size="1"></td>
+  <td width="30" scope="col"><input type="number" id="swim_strMod" name="attr_strmod" maxlength="2" size="1"></td>
+  <td width="30" scope="col"><input type="number" id="swimRank" name="swim_Rank" size="1"></td>
+  <td width="30" scope="col"><input type="number" id="swimMisc" name="swim_Misc" size="1"></td>
+      </tr>
+      <tr>
+        <td scope="row"><div align="left">Tumble</div></td>
+        <td width="30" scope="col"><input type="checkbox" id="trained" name="trained"></td>
+  <td width="30" scope="col"><input type="number" id="tumbleSum" name="tumble_sum" maxlength="2" size="1"></td>
+  <td width="30" scope="col"><input type="number" id="tumble_dexMod" name="attr_dexmod" maxlength="2" size="1"></td>
+  <td width="30" scope="col"><input type="number" id="tumbleRank" name="tumble_Rank" size="1"></td>
+  <td width="30" scope="col"><input type="number" id="tumbleMisc" name="tumble_Misc" size="1"></td>
+      </tr>
+      <tr>
+        <td scope="row"><div align="left">Use Magic Device</div></td>
+        <td width="30" scope="col"><input type="checkbox" id="trained" name="trained"></td>
+        <td width="30" scope="col"><input type="number" id="usemagicdeviceSum" name="usemagicdevicee_sum" maxlength="2" size="1"></td>
+        <td width="30" scope="col"><input type="number" id="usemagicdevice_chaMod" name="attr_chamod" maxlength="2" size="1"></td>
+        <td width="30" scope="col"><input type="number" id="usemagicdeviceRank" name="usemagicdevice_Rank" size="1"></td>
+        <td width="30" scope="col"><input type="number" id="usemagicdeviceMisc" name="usemagicdevice_Misc" size="1"></td>
+      </tr>
+      <tr>
+        <td scope="row"><div align="left">Use Rope</div></td>
+        <td width="30" scope="col"><input type="checkbox" id="trained" name="trained"></td>
+        <td width="30" scope="col"><input type="number" id="useropeSum" name="userope_sum" maxlength="2" size="1"></td>
+        <td width="30" scope="col"><input type="number" id="usemagicdevice_dexMod" name="attr_dexmod" maxlength="2" size="1"></td>
+        <td width="30" scope="col"><input type="number" id="useropeRank" name="userope_Rank" size="1"></td>
+        <td width="30" scope="col"><input type="number" id="useropeMisc" name="userope_Misc" size="1"></td>
+      </tr>
+    </table>
+  </footer>
+</html>
