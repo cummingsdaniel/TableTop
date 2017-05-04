@@ -1,0 +1,21 @@
+﻿
+/*
+
+#strscore{
+  size:small 
+}
+#table1 {
+  boarder:1px solid black;
+  boarder-spacing:1.5em;
+}
+
+.highlight {
+  background-color: yellow;
+}
+*/
+
+
+.table-striped:nth-child{
+  background-color: black;
+  color: white;
+}
