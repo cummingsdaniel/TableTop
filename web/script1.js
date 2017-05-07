@@ -1,109 +1,107 @@
 /*Attributes*/
 /*
 $(document).ready(function() {
-var strScore = 0;
-var strMod = 0;
-var dexScore = 0;
-var dexMod = 0;
-var conScore = 0;
-var conMod = 0;
-var intScore = 0;
-var intMod = 0;
-var wisScore = 0;
-var wisMod = 0;
-var chaScore = 0;
-var chaMod = 0;
+var xstrScore = 0;
+var xstrMod = 0;
+var xdexScore = 0;
+var xdexMod = 0;
+var xconScore = 0;
+var xconMod = 0;
+var xintScore = 0;
+var xintMod = 0;
+var xwisScore = 0;
+var xwisMod = 0;
+var xchaScore = 0;
+var xchaMod = 0;
 */
 /*skills*/
+
 /*
-var appraiseRank =0;
-var appraiseMisc =0; 
-var balanceRank  =0;
-var balanceMisc  =0;
-var bluffRank  =0;
-var bluffMisc  =0;
-var climbRank  =0;
-var climbMisc  =0;
-var concentrationRank =0;
-var concentrationMisc =0;  
-var craft1Rank =0;
-var craft1Misc =0;
-var craft2Rank =0;
-var craft2Misc =0;
-var craft3Rank =0;
-var craft3Misc =0;
-var decipherscriptRank =0;
-var decipherscriptMisc =0;
-var diplomacyRank =0;  
-var diplomacyMisc =0;
-var disabledeviceRank =0;
-var disabledeviceMisc =0;
-var disguiseRank =0;  
-var disguiseMisc =0;
-var escapeartistRank =0;
-var escapeartistMisc =0;  
-var forgeryRank =0;
-var forgeryMisc =0;
-var gatherinformationRank =0;
-var gatherinformationMisc =0;  
-var handleanimalRank =0;
-var handleanimalMisc =0;
-var healRank =0;  
-var healMisc =0;
-var hideRank =0;
-var hideMisc =0;
-var intimidateRank =0;
-var intimidateMisc =0; 
-var jumpRank =0;
-var jumpMisc =0;
-var knowledge1Rank =0;
-var knowledge1Misc =0;
-var knowledge2Rank =0;
-var knowledge2Misc =0;
-var knowledge3Rank =0;
-var knowledge3Misc =0;
-var knowledge4Rank =0;
-var knowledge4Misc =0;
-var knowledge5Rank =0;
-var knowledge5Misc =0;
-var listenRank =0;
-var listenMisc =0;
-var movesilentlyRank =0;
-var movesilentlyMisc =0;
-var openlockRank =0;  
-var openlockMisc =0;
-var perform1Rank =0;
-var perform1Misc =0;
-var perform2Rank =0;
-var perform2Misc =0;
-var perform3Rank =0;
-var perform3Misc =0;
-var profession1Rank =0;
-var profession1Misc =0;
-var profession2Rank =0;
-var profession2Misc =0;
-var rideRank =0;  
-var rideMisc =0;  
-var searchRank =0;
-var searchMisc =0;  
-var sensemotiveRank =0;
-var sensemotiveMisc =0;  
-var sleightofhandRank =0;
-var sleightofhandMisc =0;
-var spellcraftRank =0;
-var spellcraftMisc =0;  
-var spotRank =0;
-var spotMisc =0;  
-var survivalRank =0;
-var survivalMisc =0;  
-var swimRank =0;
-var swimMisc =0;  
-var tumbleRank =0;
-var tumbleMisc =0;  
-var usemagicdeviceRank =0;
-var usemagicdeviceMisc =0;
-var useropeRank =0;  
-var useropeMisc =0;  
+var xbalanceMisc = Number('balanceRank');
+var xbluffRank = Number('bluffRank');
+var xbluffMisc = Number('bluffMisc');
+var xclimbRank = Number('climbRank');
+var xclimbMisc = Number('climbMisc');
+var xconcentrationRank =
+var xconcentrationMisc = 
+var xcraft1Rank =
+var xcraft1Misc =
+var xcraft2Rank =
+var xcraft2Misc =
+var xcraft3Rank =
+var xcraft3Misc =
+var xdecipherscriptRank =
+var xdecipherscriptMisc =
+var xdiplomacyRank = 
+var xdiplomacyMisc =
+var xdisabledeviceRank =
+var xdisabledeviceMisc =
+var xdisguiseRank = 
+var xdisguiseMisc =
+var xescapeartistRank =
+var xescapeartistMisc = 
+var xforgeryRank =
+var xforgeryMisc =
+var xgatherinformationRank =
+var xgatherinformationMisc = 
+var xhandleanimalRank =
+var xhandleanimalMisc =
+var xhealRank =
+var xhealMisc =
+var xhideRank =
+var xhideMisc =
+var xintimidateRank =
+var xintimidateMisc =
+var xjumpRank =
+var xjumpMisc =
+var xknowledge1Rank =
+var xknowledge1Misc =
+var xknowledge2Rank =
+var xknowledge2Misc =
+var xknowledge3Rank =
+var xknowledge3Misc =
+var xknowledge4Rank =
+var xknowledge4Misc =
+var xknowledge5Rank =
+var xknowledge5Misc =
+var xlistenRank =
+var xlistenMisc =
+var xmovesilentlyRank =
+var xmovesilentlyMisc =
+var xopenlockRank =
+var xopenlockMisc =
+var xperform1Rank =
+var xperform1Misc =
+var xperform2Rank =
+var xperform2Misc =
+var xperform3Rank =
+var xperform3Misc =
+var xprofession1Rank =
+var xprofession1Misc =
+var xprofession2Rank =
+var xprofession2Misc =
+var xrideRank =
+var xrideMisc =
+var xsearchRank =
+var xsearchMisc =
+var xsensemotiveRank =
+var xsensemotiveMisc =
+var xsleightofhandRank =
+var xsleightofhandMisc =
+var xspellcraftRank =
+var xspellcraftMisc  =
+var xspotRank =
+var xspotMisc  =
+var xsurvivalRank =
+var xsurvivalMisc  =
+var xswimRank =
+var xswimMisc  =
+var xtumbleRank =
+var xtumbleMisc  =
+var xusemagicdeviceRank =
+var xusemagicdeviceMisc =
+var xuseropeRank =
+var xuseropeMisc =
 */
 $(document).ready(function() {
 console.log('test');
@@ -234,9 +232,13 @@ chaMod = (chaScore - 10) / 2;
   });
   
 /*SUMS*/
+var xappraiseRank = Number('appraiseRank');
+var xappraiseMisc = Number('appraiseMisc');
+var xbalanceRank = Number('balanceRank');
+
 $("#appraiseRank").on('change keyup paste', function() {
     appraiseRank = document.getElementById('appraiseRank').value;
-    appraiseSum = appraiseRank + appraiseMisc + intMod;
+    appraiseSum = xappraiseRank + xappraiseMisc + intMod;
     $('#appraiseSum').val(Math.floor(appraiseSum));
   });
 
@@ -253,19 +255,19 @@ $("#appraiseRank").on('change keyup paste', function() {
 
 
 
-/*var strValue = document.getElementById('strScore').value;
+/*var xstrValue = document.getElementById('strScore').value;
 
 if (strValue.length == 0) {
         alert('Please enter a real value in the text box!');
         return;
 
 
-var strMod = (strScore - 10) / 2;
-var dexMod = (dexScore - 10) / 2;
-var conMod = (conScore - 10) / 2;
-var intMod = (intScore - 10) / 2;
-var wisMod = (wisScore - 10) / 2;
-var chaMod = (chaScore - 10) / 2;
+var xstrMod = (strScore - 10) / 2;
+var xdexMod = (dexScore - 10) / 2;
+var xconMod = (conScore - 10) / 2;
+var xintMod = (intScore - 10) / 2;
+var xwisMod = (wisScore - 10) / 2;
+var xchaMod = (chaScore - 10) / 2;
 
 
 });*/
